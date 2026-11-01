@@ -2,7 +2,7 @@ name: Build NekokoLPA2
 
 on:
   push:
-    branches: [release]
+    branches: [master,release]
   pull_request:
     branches: [release]
   workflow_dispatch:
