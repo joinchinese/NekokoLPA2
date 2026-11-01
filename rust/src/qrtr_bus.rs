@@ -267,7 +267,7 @@ pub extern "system" fn Java_ee_nekoko_nlpa2_QrtrUserService_nativeReceive(
     fd: jint,
     timeout_ms: jint,
 ) -> jbyteArray {
-    let timeout = Duration::from_millis(u64::try_from(timeout_ms.max(0)).unwrap_or(0));
+    let timeout = Duration::from_secs(30);
 
     let arrived = match receive(fd, timeout) {
         Ok(arrived) => arrived,
@@ -283,7 +283,8 @@ pub extern "system" fn Java_ee_nekoko_nlpa2_QrtrUserService_nativeReceive(
         return std::ptr::null_mut();
     };
 
-    let mut framed = Vec::with_capacity(ADDRESS_LEN + datagram.len());
+    let mut fralet timeout = Duration::from_secs(30);
+med = Vec::with_capacity(ADDRESS_LEN + datagram.len());
     framed.extend_from_slice(&node.to_le_bytes());
     framed.extend_from_slice(&port.to_le_bytes());
     framed.extend_from_slice(&datagram);
